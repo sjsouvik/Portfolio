@@ -4,6 +4,7 @@
 :root{
     --primary-color: #7C3AED;
     --dark-gray: #6B7280;
+    --off-white: #F3F4F6
 }
 
 /* typography */
@@ -96,4 +97,17 @@ hr{
 
 .hero-heading span{
     color: var(--primary-color);
+}
+
+/* sections */
+section{
+    padding: 2rem;
+}
+
+section h1{
+    text-align: center;    
+}
+
+.off-white{
+    background-color: var(--off-white);
 }
