@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
+/* BEM naming convention has been used for CSS class names */
+
 /* variables in CSS - this is to keep all used colors at one place and use whenever is needed */
 :root{
     --primary-color: #7C3AED;
@@ -10,6 +12,7 @@
 /* typography */
 body{
     font-family: 'Montserrat', sans-serif;
+    margin: 0;
 }
 
 hr{
@@ -26,7 +29,6 @@ hr{
     margin: auto;
 }
 
-/* BEM naming convention has been used for CSS class names */
 /* links */
 .link{
     text-decoration: none;
@@ -93,6 +95,7 @@ hr{
 .hero-heading{
     padding-top: 1rem;
     color: var(--dark-gray);
+    text-align: center;
 }
 
 .hero-heading span{
@@ -110,4 +113,21 @@ section h1{
 
 .off-white{
     background-color: var(--off-white);
+}
+
+/* footer */
+footer{
+    background-color: var(--primary-color);
+    padding: 2rem 1rem;
+    text-align: center;
+    color: white;
+    border-top-right-radius: 1rem;
+}
+
+footer .link{
+    color: white;
+}
+
+footer ul{
+    padding-inline-start: 0px;
 }
