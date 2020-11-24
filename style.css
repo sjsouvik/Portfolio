@@ -5,6 +5,7 @@
 /* variables in CSS - this is to keep all used colors at one place and use whenever is needed */
 :root{
     --primary-color: #7C3AED;
+    --hover-color: #6D28D9;
     --dark-gray: #6B7280;
     --off-white: #F3F4F6
 }
@@ -33,11 +34,13 @@ hr{
 .link{
     text-decoration: none;
     padding: 0.5rem 1rem;
+    transition: background-color 0.2s, border 0.2s, color 0.2s;
 }
 
 .link-primary{
     background-color: var(--primary-color);
     color: white;
+    border: 1px solid var(--primary-color);
     border-radius: 0.5rem;
 }
 
@@ -45,6 +48,22 @@ hr{
     color: var(--primary-color);
     border-radius: 0.5rem;
     border: 1px solid var(--primary-color);
+}
+
+.link:hover,
+.link:active{
+    background-color: var(--hover-color);
+}
+
+.link-primary:hover,
+.link-primary:active{
+    border: 1px solid var(--hover-color);
+}
+
+.link-secondary:hover,
+.link-secondary:active{
+    border: 1px solid var(--hover-color);
+    color: white;
 }
 
 /* lists */
@@ -66,6 +85,7 @@ hr{
 }
 
 .navigation a{
+    text-decoration: none;
     color: white;
 }
 
@@ -130,8 +150,10 @@ footer{
     font-size: large;
 }
 
-footer .link{
+footer a{
     color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
 }
 
 footer ul{
