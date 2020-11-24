@@ -71,6 +71,14 @@ hr{
     list-style: none;
 }
 
+.list-non-bullet p{
+    padding-bottom: 1rem;
+}
+
+.list-non-bullet div{
+    margin-bottom: 3rem;
+}
+
 .list-item-inline{
     display: inline;
     padding: 0rem 0.5rem;
@@ -158,4 +166,8 @@ footer a{
 
 footer ul{
     padding-inline-start: 0px;
+}
+
+ion-icon{
+    font-size: 160%;
 }
