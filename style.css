@@ -112,13 +112,13 @@ hr{
 /* header */
 .hero{
     padding: 2rem;
-    padding-top: 5rem;
+    padding-top: 5rem;    
 }
 
 .hero-image{
-    max-width: 350px;
+    max-width: 300px;
     display: block;
-    margin: auto;
+    margin: auto;    
 }
 
 .hero-heading{
@@ -170,4 +170,5 @@ footer ul{
 
 ion-icon{
     font-size: 160%;
+    pointer-events: none;
 }
