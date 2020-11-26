@@ -94,6 +94,7 @@ hr{
 
 .navigation a{
     text-decoration: none;
+    letter-spacing: 0.1rem;
     color: white;
 }
 
@@ -192,4 +193,8 @@ ion-icon{
 .blog-para a{
     text-decoration: none;
     color: var(--primary-color);
+}
+
+.ul-no-padding{
+    padding-inline-start: 0;    
 }
