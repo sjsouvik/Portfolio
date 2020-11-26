@@ -33,7 +33,7 @@ hr{
 /* links */
 .link{
     text-decoration: none;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 1rem;    
     transition: background-color 0.2s, border 0.2s, color 0.2s;
 }
 
