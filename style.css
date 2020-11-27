@@ -162,7 +162,7 @@ footer{
 footer a{
     color: white;
     text-decoration: none;
-    padding: 0.5rem 1rem;
+    
 }
 
 footer ul{
@@ -171,7 +171,17 @@ footer ul{
 
 ion-icon{
     font-size: 160%;
-    pointer-events: none;
+    pointer-events: none;   
+    padding: 0.5rem 1rem; 
+    vertical-align: middle; /* to align the icon with the text */    
+}
+
+footer p{
+    font-size: smaller;
+}
+
+footer p ion-icon{
+    padding: 0 0.5rem;
 }
 
 /* Blogs */
