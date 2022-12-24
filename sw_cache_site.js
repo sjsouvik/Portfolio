@@ -1,30 +1,7 @@
 const cacheName = "v1";
 
-const cacheAssets = [
-  "index.html",
-  "projects.html",
-  "blogs.html",
-  "styles.css",
-  "index.js",
-  "blogs/things-i-wish-someone-told-me-during-my-college-days.html",
-  "images/hero.svg",
-  "images/heroProject.svg",
-  "images/heroBlog.svg",
-  "images/heroBlogCollege.svg",
-];
-
 self.addEventListener("install", (event) => {
   console.log("Service worker is installed");
-
-  event.waitUntil(
-    caches
-      .open(cacheName)
-      .then((cache) => {
-        console.log("Caching assets");
-        cache.addAll(cacheAssets);
-      })
-      .then(() => self.skipWaiting())
-  );
 });
 
 self.addEventListener("activate", (event) => {
@@ -46,6 +23,14 @@ self.addEventListener("activate", (event) => {
 self.addEventListener("fetch", (event) => {
   console.log("Fetching via Service worker");
   event.respondWith(
-    fetch(event.request).catch(() => caches.match(event.request))
+    fetch(event.request)
+      .then((res) => {
+        const clonedResponse = res.clone();
+        caches
+          .open(cacheName)
+          .then((cache) => cache.put(event.request, clonedResponse));
+        return res;
+      })
+      .catch(() => caches.match(event.request))
   );
 });
