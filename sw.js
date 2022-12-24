@@ -4,7 +4,12 @@ const cacheAssets = [
   "index.html",
   "projects.html",
   "blogs.html",
+  "styles.css",
   "blogs/things-i-wish-someone-told-me-during-my-college-days.html",
+  "images/hero.svg",
+  "images/heroProject.svg",
+  "images/heroBlog.svg",
+  "images/heroBlogCollege.svg",
 ];
 
 self.addEventListener("install", (event) => {
