@@ -47,3 +47,46 @@ self.addEventListener("fetch", (event) => {
       .catch(() => caches.match(event.request))
   );
 });
+
+/*
+
+// Different caching strategies
+
+// Cache first
+self.addEventListener("fetch", (event) => {
+  event.respondWith(
+    caches
+      .open(cacheName)
+      .then((cache) => cache.match(event.request))
+      .catch(() => fetch(event.request))
+  );
+});
+
+// Network first
+self.addEventListener("fetch", (event) => {
+  event.respondWith(
+    fetch(event.request).catch(() =>
+      caches.open(cacheName).then((cache) => cache.match(event.request))
+    )
+  );
+});
+
+// Stale-while-revalidate
+self.addEventListener("fetch", (event) => {
+  event.respondWith(
+    caches.open(cacheName).then((cache) => {
+      cache.match(event.request).then((cachedResponse) => {
+        const fetchedResponse = fetch(event.request).then((networkResponse) => {
+          cache
+            .open(cacheName)
+            .then((cache) => cache.put(event.request, networkResponse.clone()));
+          return networkResponse;
+        });
+
+        return cachedResponse || fetchedResponse;
+      });
+    })
+  );
+});
+
+*/
