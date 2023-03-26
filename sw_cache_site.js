@@ -1,24 +1,37 @@
-const cacheName = "v1";
+const version = 3;
+const cacheName = `portfolio-v${version}`;
 
 self.addEventListener("install", (event) => {
   console.log("Service worker is installed");
+
+  // to skip waiting phase, so that any new service worker don't wait for the other service worker to get destroyed and moves to the activate phase once installed
+  self.skipWaiting();
 });
 
 self.addEventListener("activate", (event) => {
-  console.log("Service worker is activated");
+  event.waitUntil(handleActivation());
+});
 
-  // remove old caches
-  event.waitUntil(
-    caches.keys().then((cacheNames) => {
-      return cacheNames.map((cache) => {
+async function handleActivation() {
+  // this would trigger the controllerChange event to set the current active service worker as the controller of the page
+  await clients.claim();
+  console.log(`Service worker v${version} is activated`);
+
+  clearOldCaches();
+}
+
+function clearOldCaches() {
+  caches.keys().then((cacheNames) => {
+    return Promise.all(
+      cacheNames.map((cache) => {
         if (cache !== cacheName) {
           console.log("Clearing old caches");
           caches.delete(cache);
         }
-      });
-    })
-  );
-});
+      })
+    );
+  });
+}
 
 self.addEventListener("fetch", (event) => {
   console.log("Fetching via Service worker");

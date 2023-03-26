@@ -209,3 +209,8 @@ footer p ion-icon {
 .ul-no-padding {
   padding-inline-start: 0;
 }
+
+#onlineStatus {
+  display: flex;
+  justify-content: center;
+}
