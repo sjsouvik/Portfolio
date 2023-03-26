@@ -39,9 +39,13 @@ self.addEventListener("fetch", (event) => {
     fetch(event.request)
       .then((res) => {
         const clonedResponse = res.clone();
+
+        /* The open() method of the CacheStorage interface returns a Promise that resolves to the Cache object matching the cacheName. 
+        If the specified Cache does not exist, a new cache is created with that cacheName and a Promise that resolves to this new Cache object is returned */
         caches
           .open(cacheName)
           .then((cache) => cache.put(event.request, clonedResponse));
+
         return res;
       })
       .catch(() => caches.match(event.request))
