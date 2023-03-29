@@ -6,19 +6,12 @@ if ("serviceWorker" in navigator) {
 }
 
 function initServiceWorker() {
-  const swRegistration = navigator.serviceWorker
+  navigator.serviceWorker
     .register("sw_cache_site.js")
     .then(() => console.log("Service worker is registered successfully"))
     .catch((error) =>
       console.error(`failed to register service worker, error: ${error}`)
     );
-
-  // let svcworker =
-  //   swRegistration.installing ||
-  //   swRegistration.waiting ||
-  //   swRegistration.active;
-
-  // console.log("service worker -", svcworker);
 
   navigator.serviceWorker.addEventListener("controllerchange", () => {
     console.log(

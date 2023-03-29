@@ -16,6 +16,7 @@ const cacheAssets = [
 self.addEventListener("install", (event) => {
   console.log("Service worker is installed");
 
+  // caching all the assets during install event, this is also known as precaching
   event.waitUntil(
     caches
       .open(cacheName)

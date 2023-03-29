@@ -35,6 +35,8 @@ function clearOldCaches() {
 
 self.addEventListener("fetch", (event) => {
   console.log("Fetching via Service worker");
+
+  // caching all the assets while fetching for the 1st time during user's navigation from one page to the other, not during install event, this is known as runtime caching
   event.respondWith(
     fetch(event.request)
       .then((res) => {
